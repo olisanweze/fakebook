@@ -24,7 +24,7 @@ let groupsArray = [
 let pagesArray = [
   'board games', 
   'cooking class',
-  'exquisite hobbies'
+  'speed racing'
 ];
 
 const newSubscriber = new Subscriber(
@@ -156,9 +156,9 @@ function fileInputCheck() {
   let file = fileInput.files[0];
 
   if (file.type.startsWith('image/')) {
-      fileName.innerText = `${fileInput.files[0].name}`;
+    fileName.innerText = `${fileInput.files[0].name}`;
   } else {
-      fileName.innerText = `Choose a picture from device`;
+    fileName.innerText = `Choose a picture from device`;
   }
 }
 
