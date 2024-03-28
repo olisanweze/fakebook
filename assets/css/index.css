@@ -127,7 +127,7 @@ input[type="button"] {
   margin-right: 15px;
 }
 
-button:hover {
+input[type="button"]:hover {
   background-color: #008892;
 }
 
