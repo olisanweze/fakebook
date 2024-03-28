@@ -1,20 +1,19 @@
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*                                                       */
-/*  Olisa Nweze (2024)                                  */
-/*  github.com/olisanweze                                  */
-/*                                                       */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*========================================================*/
+/*                                                        */
+/*  Olisa Nweze (2024)                                    */
+/*  github.com/olisanweze                                 */
+/*                                                        */
+/*=======================================================*/
 
 'use strict';
 
-// This app requires a server to handle import statements and CORS issues
 import { listen, select, create } from "./utils.js";
 import { Subscriber } from "./User.js";
 
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Organizer                                            */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*=======================================================*/
+/*  Global Variables                                     */
+/*=======================================================*/
 
 let groupsArray = [
   'chess club',
@@ -33,10 +32,18 @@ const newSubscriber = new Subscriber(
   'Tamer', 'tm456', 'tamer@email.com', '44950D2E', pagesArray, groupsArray, true
 );
 
-// Modal
 const dialog = select('.dialog');
 const profile = select('.profile');
 const modal = select('.modal-background');
+const post = select('.button');
+const text = select('textarea');
+const fileInput = select('#file-input');
+const fileName = select('.file-name');
+const platform = select('.platform');
+
+/*=======================================================*/
+/*  Functions                                            */
+/*=======================================================*/
 
 function setUserData() {
   let userData = newSubscriber.getInfo();
@@ -46,64 +53,33 @@ function setUserData() {
   let newGroups = groups.split(',').join(', ');
   const newMonetize = monetize ? 'eligible' : 'not eligible';
   return {
-    Name: name,
-    Username: username,
-    Email: email,
-    Pages: newPages,
-    Groups: newGroups,
-    Monetization: newMonetize
+    name: name,
+    username: username,
+    email: email,
+    pages: newPages,
+    groups: newGroups,
+    monetization: newMonetize
   }
 }
 
 function populateModal() {
   let obj = setUserData();
   let heading = create('h3');
-  heading.innerText = `Profile`;
+  heading.innerText = `user profile`;
   dialog.appendChild(heading);
 
   for (const prop in obj) {
     let box = create('div');
-    let parag = create('p');
+    let par = create('p');
     let span = create('span');
     span.innerText = prop;
-    parag.innerText = `${obj[prop]}`;
-    [span, parag].forEach(ele => box.appendChild(ele));
+    par.innerText = `${obj[prop]}`;
+    [span, par].forEach(e => box.appendChild(e));
     dialog.appendChild(box);
   }
 }
 
 populateModal();
-
-listen('click', profile, () => {
-  dialog.classList.remove('is-hidden');
-  dialog.classList.add('is-visible');
-  modal.classList.add('modal-bg-dark');
-});
-
-listen('click', window, (event) => {
-  if (event.target == modal) {
-      dialog.classList.remove('is-visible');
-      dialog.classList.add('is-hidden');
-      modal.classList.remove('modal-bg-dark');
-  }
-});
-
-// Post
-const post = select('button');
-const text = select('textarea');
-const fileInput = select('.file-input');
-const fileName = select('.file-name');
-const platform = select('.platform');
-
-listen('change', fileInput, () => {
-  let file = fileInput.files[0];
-
-  if (file.type.startsWith('image/')) {
-      fileName.innerText = `${fileInput.files[0].name}`;
-  } else {
-      fileName.innerText = `Choose a picture to post`;
-  }
-});
 
 function getText() {
   return text.value.trim();
@@ -121,26 +97,29 @@ function getImage() {
 }
 
 function postHeaderContent() {
-  let userIcon = create('i');
   let date = create('p');
-  let name = create('p');
+  let name = create('h4');
 
-  profile.classList.add('fa-solid');
-  profile.classList.add('fa-user');
   name.innerText = newSubscriber.name;
   date.innerText = new Date().toDateString();
 
-  return [userIcon, name, date];
+  return [name, date];
 }
 
 function createHeader() {
   let header = create('div');
   let content = postHeaderContent();
   header.classList.add('flex');
+  header.classList.add('space-between');
 
+  let profile = create('div');
+  profile.classList.add('profile');
+
+  header.appendChild(profile);
   content.forEach(arg => {
     header.appendChild(arg);
   })
+
   return header;
 }
 
@@ -174,9 +153,42 @@ function createPost() {
   }
 }
 
-listen('click', post, () => {
+function fileInputCheck() {
+  let file = fileInput.files[0];
+
+  if (file.type.startsWith('image/')) {
+      fileName.innerText = `${fileInput.files[0].name}`;
+  } else {
+      fileName.innerText = `Choose a picture from device`;
+  }
+}
+
+function postReset() {
   createPost();
   fileInput.value = null;
   fileName.innerText = '';
   text.value = '';
-});
+}
+
+function showModal() {
+  dialog.classList.remove('is-hidden');
+  dialog.classList.add('is-visible');
+  modal.classList.add('modal-bg-dark');
+}
+
+function hideModal(e) {
+  if (e.target == modal) {
+    dialog.classList.remove('is-visible');
+    dialog.classList.add('is-hidden');
+    modal.classList.remove('modal-bg-dark');
+  }
+}
+
+/*=======================================================*/
+/*  Event Listeners                                      */
+/*=======================================================*/
+
+listen('click', profile, showModal);
+listen('click', window, hideModal);
+listen('change', fileInput, fileInputCheck);
+listen('click', post, postReset);
