@@ -199,7 +199,6 @@ input[type="button"]:hover {
   display: block;
   position: fixed;
   z-index: 1;
-  left: 25%;
   top: 24%;
   right: 25%;
   left: 25%;
@@ -226,7 +225,7 @@ input[type="button"]:hover {
 .platform h4 {
   font-weight: 600;
   padding-top: 15px;
-  width: 320px;
+  width: 65%;
 }
 
 #file-input {
@@ -236,4 +235,37 @@ input[type="button"]:hover {
 .file-name {
   font-size: 14px;
   padding-left: 10px;
+}
+
+/*=======================================*/
+/*            media queries              */
+/*=======================================*/
+
+/* 900px and down */
+
+@media (max-width: 900px) {
+  .platform h4 {
+    width: 45%;
+  }
+}
+
+/* 480px and down */
+
+@media (max-width: 480px) {
+  nav {
+    display: none;
+  }
+
+  .platform {
+    width: 100%;
+  }
+
+  .platform h4 {
+    width: 50%;
+  }
+
+  .is-visible {
+    left: 0%;
+    right: 0%;
+  }
 }
