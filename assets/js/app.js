@@ -10,7 +10,6 @@
 import { listen, select, create } from "./utils.js";
 import { Subscriber } from "./User.js";
 
-
 /*=======================================================*/
 /*  Global Variables                                     */
 /*=======================================================*/
@@ -87,12 +86,12 @@ function getText() {
 
 function getImage() {
   if (fileInput.files.length !== 0) {
-      let file = fileInput.files[0];
-      if (file.type.startsWith('image/')) {
-          let img = create('img');
-          img.src = URL.createObjectURL(file);
-          return img;
-      }
+    let file = fileInput.files[0];
+    if (file.type.startsWith('image/')) {
+      let img = create('img');
+      img.src = URL.createObjectURL(file);
+      return img;
+    }
   }
 }
 
@@ -131,14 +130,14 @@ function appendPost(container) {
   }
 }
 
-function isValid() {
+function postIsValid() {
   if (text.value !== "" || fileInput.files.length !== 0) {
     return true;
   }
 }
 
 function createPost() {
-  if (isValid ()) {
+  if (postIsValid()) {
     let header = createHeader();
     let postContainer = create('div');
     let post = create('p');

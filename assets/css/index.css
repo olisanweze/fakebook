@@ -31,11 +31,11 @@ h1, h2, h3, h4, p, a, span {
   font-family: 'Open Sans', sans-serif;
 }
 
-a, span {
+a {
   color: #fff;
 }
 
-p, h4, .file-name {
+p, h4, span {
   color: #afb7ad;
 }
 
