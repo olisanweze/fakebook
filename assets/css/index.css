@@ -4,6 +4,7 @@
 
 :root {
   --background-dark: rgb(24, 23, 31);
+  --app-grey: #afb7ad;
 }
 
 body {
@@ -36,7 +37,7 @@ a {
 }
 
 p, h4, span {
-  color: #afb7ad;
+  color: var(--app-grey);
 }
 
 /*=======================================================*/
@@ -110,7 +111,7 @@ textarea {
   width: 100%;
   height: 160px;
   background-color: transparent;
-  color: #afb7ad;
+  color: var(--app-grey);
   font-weight: 600;
   padding: 15px;
 }
@@ -120,7 +121,7 @@ input[type="button"] {
   height: 44px;
   line-height: 44px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
   width: 100px;
   background-color: #088;
@@ -216,7 +217,6 @@ input[type="button"]:hover {
 .platform > div > img {
   border-radius: 4px;
   padding-top: 10px;
-
 }
 
 .platform p {
@@ -226,7 +226,7 @@ input[type="button"]:hover {
 .platform h4 {
   font-weight: 600;
   padding-top: 15px;
-  width: 300px;
+  width: 320px;
 }
 
 #file-input {
