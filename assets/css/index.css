@@ -142,6 +142,8 @@ input[type="button"]:hover {
 
 .submit {
   height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dialog {
@@ -259,11 +261,7 @@ input[type="button"]:hover {
   .platform {
     width: 100%;
   }
-
-  .platform h4 {
-    width: 50%;
-  }
-
+  
   .is-visible {
     left: 0%;
     right: 0%;

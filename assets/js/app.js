@@ -8,7 +8,7 @@
 'use strict';
 
 import { listen, select, create } from "./utils.js";
-import { Subscriber } from "./User.js";
+import { Subscriber } from "./Subscriber.js";
 
 /*=======================================================*/
 /*  Global Variables                                     */
