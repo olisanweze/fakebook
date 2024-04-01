@@ -265,6 +265,10 @@ input[type="button"]:hover {
     width: 100%;
   }
 
+  .platform h4 {
+    width: 60%;
+  }
+
   .dialog h3 {
     font-size: 20px;
   }
