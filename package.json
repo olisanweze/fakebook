@@ -1,12 +1,12 @@
 {
   "name": "fakebook",
   "version": "1.0.0",
-  "description": "Fakebook",
+  "description": "fakebook",
   "main": "index.js",
   "scripts": {
     "start": "lite-server"
   },
-  "author": "Ejike-Nweze, Olisa M.",
+  "author": "ejike-Nweze, olisa M.",
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.6.1"

@@ -189,5 +189,6 @@ function hideModal(e) {
 
 listen('click', profile, showModal);
 listen('click', window, hideModal);
+listen('touchstart', window, hideModal);
 listen('change', fileInput, fileInputCheck);
 listen('click', post, postReset);

@@ -78,7 +78,7 @@ nav ul li a {
 
 h1 {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 700;
   color: #088;
   line-height: 60px;
 }
@@ -159,9 +159,9 @@ input[type="button"]:hover {
 
 .dialog h3 {
   text-align: center;
-  padding: 15px 0;
+  padding-bottom: 15px;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 700;
   color: #088;
 }
 
@@ -210,7 +210,7 @@ input[type="button"]:hover {
 .platform > div {
   width: 100%;
   background-color: rgb(31 30 38);
-  padding: 20px;
+  padding: 15px;
   border-radius: 4px;
   margin-top: 40px;
 }
@@ -220,12 +220,15 @@ input[type="button"]:hover {
   padding-top: 10px;
 }
 
+.platform h4, .platform p {
+  font-weight: 600;
+}
+
 .platform p {
-  padding: 15px 0;
+  padding-top: 15px;
 }
 
 .platform h4 {
-  font-weight: 600;
   padding-top: 15px;
   width: 65%;
 }
@@ -260,6 +263,18 @@ input[type="button"]:hover {
 
   .platform {
     width: 100%;
+  }
+
+  .dialog h3 {
+    font-size: 20px;
+  }
+
+  .dialog p, .dialog span {
+    font-size: 16px;
+  }
+
+  .dialog {
+    width: 80%;
   }
   
   .is-visible {
