@@ -176,7 +176,7 @@ function showModal() {
 }
 
 function hideModal(e) {
-  if (e.target == modal) {
+  if (e.target === modal) {
     dialog.classList.remove('is-visible');
     dialog.classList.add('is-hidden');
     modal.classList.remove('modal-bg-dark');
