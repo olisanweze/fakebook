@@ -28,7 +28,7 @@ let pagesArray = [
 ];
 
 const newSubscriber = new Subscriber(
-  'Tamer', 'tm456', 'tamer@email.com', '44950D2E', pagesArray, groupsArray, true
+  'tamer', 'tm456', 'tamer@email.com', '44950D2E', pagesArray, groupsArray, true
 );
 
 const dialog = select('.dialog');
